@@ -14,7 +14,7 @@
 
 ## Посмотреть сайт:
 
-[https://karez79.github.io/hakaton-result-a-team/](https://karez79.github.io/hakaton-result-a-team/)
+[https://karez79.github.io/hackathon-react/](https://karez79.github.io/hackathon-react/)
 
 
 ## Инструкции по установке и запуску:
