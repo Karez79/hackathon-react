@@ -1,7 +1,6 @@
 import styles from "./Button.module.scss";
-import React from "react";
 import PropTypes from "prop-types";
-import cn from "classnames";
+
 export const Button = ({
   children,
   onClick,
@@ -10,11 +9,12 @@ export const Button = ({
   disabled,
   ...props
 }) => {
+  const className = `${styles.button} ${styles[variant] || ""}`;
   return (
     <button
       type={type}
       onClick={onClick}
-      className={cn(styles.button, styles[variant])}
+      className={className}
       disabled={disabled}
       {...props}
     >
