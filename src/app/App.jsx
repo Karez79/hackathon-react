@@ -1,5 +1,6 @@
-import { BrowserRouter } from 'react-router-dom';
-import styles from './App.module.scss';
+import { BrowserRouter } from "react-router-dom";
+import { Button } from "@/shared/ui/Button";
+import styles from "./App.module.scss";
 
 function App() {
   return (
