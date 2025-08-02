@@ -1,0 +1,131 @@
+.homePage {
+    min-height: 100vh;
+    background: var(--light);
+    color: var(--dark);
+    padding: toRem(96) toRem(30) toRem(64);
+  
+    @include MQmin($tablet) {
+      padding: toRem(96) toRem(50) toRem(64);
+    }
+  
+    .hero {
+      max-width: toRem(1440);
+      margin: 0 auto;
+      text-align: center;
+      
+      h1 {
+        font-size: toRem(48);
+        font-weight: 700;
+        margin-bottom: toRem(24);
+        color: var(--dark);
+        transition: color var(--duration) var(--ease);
+        cursor: pointer;
+        
+        @include hover {
+          color: #667eea;
+        }
+        
+        @include MQmin($tablet) {
+          font-size: toRem(64);
+        }
+      }
+  
+      .subtitle {
+        font-size: toRem(18);
+        margin-bottom: toRem(48);
+        color: var(--grey-100);
+        max-width: toRem(800);
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+  
+        @include MQmin($tablet) {
+          font-size: toRem(20);
+          margin-bottom: toRem(56);
+        }
+      }
+  
+      .stats {
+        display: flex;
+        justify-content: center;
+        gap: toRem(80);
+        margin-bottom: toRem(56);
+        
+        @include MQmax($tablet) {
+          flex-direction: column;
+          align-items: center;
+          gap: toRem(40);
+        }
+        
+        .statCard {
+          text-align: center;
+          
+          .statNumber {
+            font-size: toRem(64);
+            font-weight: 700;
+            display: block;
+            margin-bottom: toRem(8);
+            color: #667eea;
+  
+            @include MQmin($tablet) {
+              font-size: toRem(72);
+            }
+          }
+          
+          .statLabel {
+            font-size: toRem(18);
+            color: var(--grey-100);
+            font-weight: 500;
+          }
+        }
+      }
+  
+      .technologies {
+        .techList {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: toRem(16);
+          
+          .techItem {
+            background: var(--light-100);
+            padding: toRem(12) toRem(24);
+            border-radius: toRem(8);
+            font-weight: 600;
+            color: var(--dark);
+            font-size: toRem(14);
+            border: 1px solid var(--grey);
+            transition: all var(--duration) var(--ease);
+  
+            @include hover {
+              background: #667eea;
+              color: var(--light);
+              transform: translateY(toRem(-2));
+            }
+          }
+        }
+      }
+  
+      .teamSection {
+        margin-top: toRem(64);
+        
+        h2 {
+          font-size: toRem(36);
+          font-weight: 700;
+          margin-bottom: toRem(48);
+          color: var(--dark);
+          text-align: center;
+          transition: color var(--duration) var(--ease);
+          cursor: pointer;
+  
+          @include hover {
+            color: #667eea;
+          }
+  
+          @include MQmin($tablet) {
+            font-size: toRem(42);
+          }
+        }
+      }
+    }
+  }
