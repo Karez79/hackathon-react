@@ -1,27 +1,19 @@
 import { members } from "../../../entities/member/model/member";
 import MemberCard from "../../../entities/member/ui/MemberCard";
-import PropTypes from "prop-types";
+import styles from "./MemberList.module.scss";
 
-const MemberList = () => {
+const MembersGrid = () => {
   return (
-    <>
-      {members.map((member) => (
-        <MemberCard key={member.id} member={member} />
-      ))}
-    </>
+    <section className={styles.teamSection}>
+      <div className={styles.container}>
+        <div className={styles.grid}>
+          {members.map((member) => (
+            <MemberCard key={member.id} member={member} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
-MembersList.propTypes = {
-  members: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      role: PropTypes.string.isRequired,
-      initials: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
-
-export default MemberList;
+export default MembersGrid;

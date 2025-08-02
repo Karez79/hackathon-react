@@ -1,9 +1,15 @@
 import PropTypes from "prop-types";
+import styles from "./MemberCard.module.scss";
 
 const MemberCard = ({ member }) => {
   return (
-    <div>
-      <h1>{member.name}</h1>
+    <div className={styles.card}>
+      <div className={styles.initials}>{member.initials}</div>
+      <div className={styles.content}>
+        <h3 className={styles.name}>{member.name}</h3>
+        <p className={styles.role}>{member.role}</p>
+        <p className={styles.description}>{member.description}</p>
+      </div>
     </div>
   );
 };
