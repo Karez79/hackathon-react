@@ -1,0 +1,61 @@
+.favoritesPage {
+    min-height: 100vh;
+    background: var(--light);
+    color: var(--dark);
+    padding: toRem(96) toRem(30) toRem(64);
+  
+    @include MQmin($tablet) {
+      padding: toRem(96) toRem(50) toRem(64);
+    }
+  
+    .container {
+      max-width: toRem(1440);
+      margin: 0 auto;
+      text-align: center;
+      
+      h1 {
+        font-size: toRem(48);
+        font-weight: 700;
+        margin-bottom: toRem(24);
+        color: var(--dark);
+  
+        @include MQmin($tablet) {
+          font-size: toRem(56);
+        }
+      }
+  
+      .subtitle {
+        font-size: toRem(18);
+        color: var(--grey-100);
+        margin-bottom: toRem(64);
+        max-width: toRem(600);
+        margin-left: auto;
+        margin-right: auto;
+  
+        @include MQmin($tablet) {
+          font-size: toRem(20);
+        }
+      }
+  
+      .emptyState {
+        background: var(--light-200);
+        border-radius: toRem(16);
+        padding: toRem(64);
+        border: 1px solid var(--grey);
+        max-width: toRem(500);
+        margin: 0 auto;
+  
+        .emptyIcon {
+          font-size: toRem(64);
+          margin-bottom: toRem(24);
+          color: #667eea;
+        }
+  
+        .emptyText {
+          font-size: toRem(18);
+          color: var(--grey-100);
+          line-height: 1.6;
+        }
+      }
+    }
+  }

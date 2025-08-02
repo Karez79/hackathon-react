@@ -1,48 +1,4 @@
 .app {
-  font-family: "Inter", sans-serif;
-  max-width: $laptop;
-  margin: 0 auto;
   min-height: 100vh;
-  
-  @include MQmax($tablet) {
-    padding: toRem(20) toRem(15);
-  }
-  
-  h1 {
-    color: var(--blue);
-    margin-bottom: toRem(24);
-    font-weight: 700;
-    font-size: clamp(toRem(28), 5vw, toRem(48));
-    text-align: center;
-    position: relative;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: toRem(-8);
-      left: 50%;
-      transform: translateX(-50%);
-      width: toRem(60);
-      height: toRem(3);
-      background: linear-gradient(90deg, var(--orange) 0%, var(--yellow) 100%);
-      border-radius: toRem(2);
-    }
-    
-    @include hover {
-      color: var(--orange);
-    }
-  }
-  
-  p {
-    color: var(--grey-100);
-    font-size: toRem(20);
-    font-weight: 500;
-    text-align: center;
-    margin-top: toRem(32);
-    
-    @include MQmax($mobile) {
-      font-size: toRem(18);
-      margin-top: toRem(24);
-    }
-  }
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }

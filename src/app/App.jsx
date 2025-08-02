@@ -1,12 +1,16 @@
 import { BrowserRouter } from 'react-router-dom';
+import { Router } from './providers/Router';
+import { Navbar } from '../widgets/navbar';
 import styles from './App.module.scss';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/hackathon-react">
       <div className={styles.app}>
-        <h1>Hackathon React Team</h1>
-        <p>Погнали пыхтеть! 🚀</p>
+        <Navbar />
+        <main className={styles.main}>
+          <Router />
+        </main>
       </div>
     </BrowserRouter>
   );
