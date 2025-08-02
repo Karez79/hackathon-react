@@ -1,0 +1,10 @@
+.theme-switcher {
+  padding: 0.5rem 0;
+  font-size: smaller;
+  cursor: pointer;
+
+  > input {
+    appearance: none;
+    margin: 0;
+  }
+}

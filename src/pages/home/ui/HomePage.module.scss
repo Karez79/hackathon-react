@@ -1,0 +1,33 @@
+.homePage {
+    min-height: 100vh;
+    background: var(--light);
+    color: var(--dark);
+    padding: toRem(96) toRem(30) toRem(64);
+  
+    @include MQmin($tablet) {
+      padding: toRem(96) toRem(50) toRem(64);
+    }
+  
+    .teamSection {
+      max-width: toRem(1440);
+      margin: 0 auto;
+      
+      h2 {
+        font-size: toRem(36);
+        font-weight: 700;
+        margin-bottom: toRem(48);
+        color: var(--dark);
+        text-align: center;
+        transition: color var(--duration) var(--ease);
+        cursor: pointer;
+  
+        @include hover {
+          color: #667eea;
+        }
+  
+        @include MQmin($tablet) {
+          font-size: toRem(42);
+        }
+      }
+    }
+  }

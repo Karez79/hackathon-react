@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/hackathon-react/',
+  // base: '/hackathon-react/',
   css: {
     preprocessorOptions: {
       scss: {

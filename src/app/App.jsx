@@ -1,13 +1,19 @@
 import { BrowserRouter } from "react-router-dom";
 import { Button } from "@/shared/ui/Button";
 import styles from "./App.module.scss";
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './providers/router';
+import { Navbar } from '../widgets/navbar';
+import styles from './App.module.scss';
 
 function App() {
   return (
     <BrowserRouter>
       <div className={styles.app}>
-        <h1>Hackathon React Team</h1>
-        <p>Погнали пыхтеть! 🚀</p>
+        <Navbar />
+        <main className={styles.main}>
+          <Router />
+        </main>
       </div>
     </BrowserRouter>
   );
