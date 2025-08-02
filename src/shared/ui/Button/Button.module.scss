@@ -1,99 +1,199 @@
-@use 'shared/styles/variables' as *;
-
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: toRem(8);
   border: none;
   cursor: pointer;
   font-family: inherit;
   font-weight: 500;
   text-decoration: none;
-  transition: $transition;
+  transition: all 0.2s ease;
   outline: none;
+  border-radius: toRem(8);
+  position: relative;
+  overflow: hidden;
   
-  &:focus {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+  
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgba(var(--blue-rgb), 0.3);
   }
   
   // Варианты цветов
   &--primary {
-    background-color: $primary-color;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
     color: white;
+    box-shadow: 0 4px 15px rgba(var(--blue-rgb), 0.3);
     
     &:hover:not(.btn--disabled) {
-      background-color: darken($primary-color, 8%);
       transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(var(--blue-rgb), 0.4);
     }
     
     &:active:not(.btn--disabled) {
-      background-color: darken($primary-color, 12%);
-      transform: translateY(0);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(var(--blue-rgb), 0.3);
     }
   }
   
   &--secondary {
-    background-color: $secondary-color;
-    color: white;
+    background: linear-gradient(135deg, var(--orange) 0%, var(--yellow) 100%);
+    color: var(--dark);
+    box-shadow: 0 4px 15px rgba(var(--orange-rgb), 0.3);
     
     &:hover:not(.btn--disabled) {
-      background-color: darken($secondary-color, 8%);
       transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(var(--orange-rgb), 0.4);
+    }
+  }
+  
+  &--outline {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    
+    &:hover:not(.btn--disabled) {
+      background: var(--blue);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(var(--blue-rgb), 0.3);
+    }
+  }
+  
+  &--ghost {
+    background: rgba(var(--blue-rgb), 0.1);
+    color: var(--blue);
+    border: 1px solid rgba(var(--blue-rgb), 0.2);
+    
+    &:hover:not(.btn--disabled) {
+      background: rgba(var(--blue-rgb), 0.2);
+      border-color: rgba(var(--blue-rgb), 0.3);
+      transform: translateY(-1px);
     }
   }
   
   &--danger {
-    background-color: $danger-color;
+    background: linear-gradient(135deg, #ff4757 0%, #ff3838 100%);
     color: white;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
     
     &:hover:not(.btn--disabled) {
-      background-color: darken($danger-color, 8%);
       transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 71, 87, 0.4);
     }
   }
   
   &--success {
-    background-color: $success-color;
+    background: linear-gradient(135deg, #2ed573 0%, #1dd1a1 100%);
     color: white;
+    box-shadow: 0 4px 15px rgba(46, 213, 115, 0.3);
     
     &:hover:not(.btn--disabled) {
-      background-color: darken($success-color, 8%);
       transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(46, 213, 115, 0.4);
     }
-  }
-  
-  // Типы формы
-  &--rounded {
-    border-radius: 25px;
-  }
-  
-  &--square {
-    border-radius: $border-radius;
   }
   
   // Размеры
   &--small {
-    padding: 6px 16px;
-    font-size: 14px;
-    min-height: 32px;
+    padding: toRem(8) toRem(16);
+    font-size: toRem(14);
+    min-height: toRem(36);
+    border-radius: toRem(6);
   }
   
   &--medium {
-    padding: 10px 20px;
-    font-size: 16px;
-    min-height: 40px;
+    padding: toRem(12) toRem(24);
+    font-size: toRem(16);
+    min-height: toRem(44);
   }
   
   &--large {
-    padding: 14px 28px;
-    font-size: 18px;
-    min-height: 48px;
+    padding: toRem(16) toRem(32);
+    font-size: toRem(18);
+    min-height: toRem(52);
+    border-radius: toRem(12);
   }
   
-  // Отключенное состояние
+  // Формы
+  &--rounded {
+    border-radius: toRem(50);
+  }
+  
+  &--square {
+    border-radius: toRem(4);
+  }
+  
+  // Полная ширина
+  &--fullWidth {
+    width: 100%;
+  }
+  
+  // Состояния
+  &--loading {
+    pointer-events: none;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: toRem(16);
+      height: toRem(16);
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    .btn__content {
+      opacity: 0;
+    }
+  }
+  
   &--disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
+    pointer-events: none;
     transform: none !important;
+    box-shadow: none !important;
+    
+    &::before {
+      display: none;
+    }
+  }
+  
+  // Адаптив
+  @include MQmax($mobile) {
+    &--large {
+      padding: toRem(14) toRem(24);
+      font-size: toRem(16);
+      min-height: toRem(48);
+    }
+    
+    &--medium {
+      padding: toRem(10) toRem(20);
+      font-size: toRem(15);
+      min-height: toRem(40);
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
