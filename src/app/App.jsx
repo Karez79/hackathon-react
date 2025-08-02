@@ -5,7 +5,7 @@ import styles from './App.module.scss';
 
 function App() {
   return (
-    <BrowserRouter basename="/hackathon-react">
+    <BrowserRouter>
       <div className={styles.app}>
         <Navbar />
         <main className={styles.main}>
