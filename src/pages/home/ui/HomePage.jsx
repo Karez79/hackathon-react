@@ -4,13 +4,13 @@ import styles from './HomePage.module.scss';
 
 const HomePage = () => {
   return (
-    <section className={styles.homePage}>
+    <div className={styles.homePage}>
       <TeamInfo />
       <section className={styles.teamSection}>
         <h2>Наша команда</h2>
         {/* <MemberList /> */}
       </section>
-    </section>
+    </div>
   );
 };
 
