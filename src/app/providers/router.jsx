@@ -7,7 +7,7 @@ const routes = [
   { path: "/", element: <HomePage /> },
   { path: "/favorites", element: <FavoritesPage /> },
   { path: "/member/:id", element: <MemberProfilePage /> },
-  { path: "*", element: <Navigate to="/" /> },
+  { path: "*", element: <Navigate to="/" replace /> }
 ];
 
 export const Router = () => {
