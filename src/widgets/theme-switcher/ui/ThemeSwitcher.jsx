@@ -29,17 +29,16 @@ export const ThemeSwitcher = () => {
   console.log('colorTheme', colorTheme);
 
   return (
-    <label className={styles['theme-switcher']}>
-      <span>{colorTheme === 'dark' ? 'тёмная тема' : 'светлая тема'}</span>
+    <label className={styles.themeSwitcher}>
       <input
         id='themeSwitcher'
         type='checkbox'
         role='switch'
         aria-label='Переключение темы'
-        title='Переключить тему'
         checked={colorTheme === 'dark' ? true : false}
         onChange={onThemeChange}
       />
+      <span className={styles.slider} title='Переключить тему' />
     </label>
   );
 };
