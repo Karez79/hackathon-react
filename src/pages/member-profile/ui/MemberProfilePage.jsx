@@ -1,6 +1,7 @@
-import {useParams, Link} from 'react-router-dom';
+import {useParams, Link, useNavigate} from 'react-router-dom';
 import {getMemberById} from '../../../entities/member';
 import styles from './MemberProfilePage.module.scss';
+import {Badge, Button, Progress} from '../../../shared/ui';
 
 /** Mock data */
 const skills = [
@@ -18,8 +19,11 @@ const contacts = {
 /***/
 
 const MemberProfilePage = () => {
+  const navigate = useNavigate();
+
   const {id} = useParams();
   const member = getMemberById(id);
+  const contacts = member.contacts || {};
 
   return (
     <div className={styles.memberProfilePage}>
@@ -39,14 +43,24 @@ const MemberProfilePage = () => {
             <div className={styles.avatar}>{member.initials}</div>
             <div className={styles.profileInfo}>
               <h1 className={styles.name}>{member.name}</h1>
-              <p className={styles.role}>{member.role}</p>
+              <p className={styles.role}>
+                {member.role}
+                {member.badges &&
+                  member.badges.length > 0 &&
+                  member.badges.map((badge, i) => (
+                    <>
+                      &nbsp;
+                      <Badge key={i}>{badge}</Badge>
+                    </>
+                  ))}
+              </p>
               <p className={styles.description}>{member.description}</p>
+
               {/** Add to favorites */}
-              <button title='В разработке'>♡</button>
-              {/** Button */}
-              <Link to='/' title='В разработке'>
-                ← Назад к команде
-              </Link>
+              <button title='В избранное'>♡</button>
+              {/***/}
+
+              <Button onClick={() => navigate('/')}>← Назад к команде</Button>
             </div>
           </div>
 
@@ -54,29 +68,28 @@ const MemberProfilePage = () => {
             <h3>Навыки и технологии</h3>
             <div className={styles.profileCardSkillsList}>
               {skills.map((skill, i) => (
-                /** Progress */
-                <div key={i} className={styles.skillItem} title='В разработке'>
-                  <span className={styles.skillItemName}>{skill.name}</span>
-                  <span className={styles.skillItemLevel}>{skill.level}</span>
-                </div>
-                /***/
+                <Progress key={i} label={skill.name} percent={skill.level} />
               ))}
             </div>
           </div>
 
-          <div class={styles.profileCardContacts}>
+          <div className={styles.profileCardContacts}>
             <h3>Контакты</h3>
-            <div class={styles.profileCardContactsList}>
+            <div className={styles.profileCardContactsList}>
               {Object.keys(contacts).map((contact) => (
                 <div key={contact} className={styles.contactItem}>
-                  {/** Button */}
-                  <a href={contacts[contact]} title='В разработке'>
-                    <span>{contact}</span>
-                  </a>
+                  <Button
+                    navigate={contacts[contact]}
+                    style={{textTransform: 'capitalize'}}
+                  >
+                    {contact}
+                  </Button>
                 </div>
               ))}
             </div>
           </div>
+
+          <div className={styles.funFact}>{member.funFact}</div>
         </div>
       </div>
     </div>
