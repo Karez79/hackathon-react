@@ -4,14 +4,20 @@ body {
 }
 
 .app {
+  // Сначала все основные декларации
   min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  color: var(--dark);
+  background-color: var(--light);
 
+  // Затем миксины и медиа-запросы
   @include MQmax($tablet) {
     padding: toRem(20) toRem(15);
   }
 
+  // В конце вложенные селекторы
   h1 {
-    color: var(--blue);
+    // color: var(--blue);
     margin-bottom: toRem(24);
     font-weight: 700;
     font-size: clamp(toRem(28), 5vw, toRem(48));
@@ -31,7 +37,7 @@ body {
     }
 
     @include hover {
-      color: var(--orange);
+      color:  #667eea;
     }
   }
 
@@ -47,8 +53,4 @@ body {
       margin-top: toRem(24);
     }
   }
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    sans-serif;
-  color: var(--dark);
-  background-color: var(--light);
 }

@@ -1,6 +1,4 @@
 import { BrowserRouter } from "react-router-dom";
-import { Button } from "@/shared/ui/Button";
-
 import { Router } from "./providers/router";
 import { Navbar } from "../widgets/navbar";
 import styles from "./App.module.scss";

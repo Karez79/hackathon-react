@@ -1,0 +1,49 @@
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: toRem(24);
+  height: toRem(18);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform var(--duration) var(--ease);
+
+  @include MQmax($tablet) {
+    display: flex;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+  }
+}
+
+.line {
+  width: 100%;
+  height: toRem(2);
+  background: var(--dark);
+  border-radius: toRem(1);
+  transition: all var(--duration) var(--ease);
+  transform-origin: center;
+}
+
+.burger.open {
+  .line:nth-child(1) {
+    transform: translateY(toRem(8)) rotate(45deg);
+  }
+
+  .line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .line:nth-child(3) {
+    transform: translateY(toRem(-8)) rotate(-45deg);
+  }
+}
