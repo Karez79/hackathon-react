@@ -1,13 +1,11 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { HomePage } from '../../pages/home';
-import { FavoritesPage } from '../../pages/favorites';
-import { MemberProfilePage } from '../../pages/member-profile';
+import { Routes, Route } from 'react-router-dom';
+import { HomePage, FavoritesPage, MemberProfilePage, NotFoundPage } from '../../pages';
 
 const routes = [
   { path: "/", element: <HomePage /> },
   { path: "/favorites", element: <FavoritesPage /> },
   { path: "/member/:id", element: <MemberProfilePage /> },
-  { path: "*", element: <Navigate to="/" replace /> }
+  { path: "*", element: <NotFoundPage /> }
 ];
 
 export const Router = () => {
