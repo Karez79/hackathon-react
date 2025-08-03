@@ -243,63 +243,100 @@
   animation: fadeInUp 1s ease-out 1.4s both;
 }
 
-.homeButton,
-.backButton {
-  padding: toRem(16) toRem(32);
-  border-radius: toRem(50);
+// Стили для обертки Link с Button
+.linkWrapper {
   text-decoration: none;
-  font-weight: 600;
-  font-size: toRem(16);
-  transition: all var(--duration) var(--ease);
-  border: none;
-  cursor: pointer;
-  min-width: toRem(180);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: toRem(8);
-  position: relative;
-  overflow: hidden;
   
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.6s ease;
-  }
-  
-  @include hover {
-    transform: translateY(toRem(-3)) scale(1.05);
+  button {
+    min-width: toRem(180);
+    padding: toRem(16) toRem(32);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: toRem(8);
+    font-weight: 600;
+    font-size: toRem(16);
+    border-radius: toRem(50);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--duration) var(--ease);
     
+    // Эффект свечения для primary кнопки
     &::before {
-      left: 100%;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    @include hover {
+      transform: translateY(toRem(-3)) scale(1.05);
+      
+      &::before {
+        left: 100%;
+      }
     }
   }
 }
 
-.homeButton {
-  background: linear-gradient(135deg, var(--blue), #8b5cf6);
-  color: var(--light);
-  box-shadow: 0 toRem(10) toRem(30) rgba(139, 92, 246, 0.3);
-  
-  @include hover {
-    box-shadow: 0 toRem(15) toRem(40) rgba(139, 92, 246, 0.4);
+// Стили для отдельных Button вариантов в контексте NotFound
+.actions {
+  // Primary button (home button) стили
+  .linkWrapper button {
+    background: linear-gradient(135deg, var(--blue), #8b5cf6);
+    color: var(--light);
+    box-shadow: 0 toRem(10) toRem(30) rgba(139, 92, 246, 0.3);
+    border: none;
+    
+    @include hover {
+      box-shadow: 0 toRem(15) toRem(40) rgba(139, 92, 246, 0.4);
+    }
   }
-}
-
-.backButton {
-  background: var(--light-100);
-  color: var(--dark);
-  border: toRem(2) solid var(--light-200);
-  box-shadow: 0 toRem(8) toRem(25) rgba(0, 0, 0, 0.1);
   
-  @include hover {
-    background: var(--light-200);
-    box-shadow: 0 toRem(12) toRem(35) rgba(0, 0, 0, 0.15);
+  // Secondary button (back button) стили
+  > button {
+    min-width: toRem(180);
+    padding: toRem(16) toRem(32);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: toRem(8);
+    font-weight: 600;
+    font-size: toRem(16);
+    border-radius: toRem(50);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--duration) var(--ease);
+    
+    background: var(--light-100);
+    color: var(--dark);
+    border: toRem(2) solid var(--light-200);
+    box-shadow: 0 toRem(8) toRem(25) rgba(0, 0, 0, 0.1);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    @include hover {
+      transform: translateY(toRem(-3)) scale(1.05);
+      background: var(--light-200);
+      box-shadow: 0 toRem(12) toRem(35) rgba(0, 0, 0, 0.15);
+      
+      &::before {
+        left: 100%;
+      }
+    }
   }
 }
 
@@ -469,12 +506,12 @@
     flex-direction: column;
     align-items: center;
     gap: toRem(15);
-  }
-  
-  .homeButton,
-  .backButton {
-    width: 100%;
-    max-width: toRem(280);
+    
+    .linkWrapper button,
+    > button {
+      width: 100%;
+      max-width: toRem(280);
+    }
   }
   
   .decorativeElements {

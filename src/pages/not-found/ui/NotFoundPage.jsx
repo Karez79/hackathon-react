@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button } from '../../../shared/ui/Button';
 import styles from './NotFoundPage.module.scss';
 
 const NotFoundPage = () => {
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className={styles.notFoundContainer}>
       {/* Анимированный фон */}
@@ -44,17 +51,19 @@ const NotFoundPage = () => {
         </div>
 
         <div className={styles.actions}>
-          <Link to="/" className={styles.homeButton}>
-            <span>🏠</span>
-            Вернуться домой
+          <Link to="/" className={styles.linkWrapper}>
+            <Button variant="primary">
+              <span>🏠</span>
+              Вернуться домой
+            </Button>
           </Link>
-          <button 
-            className={styles.backButton}
-            onClick={() => window.history.back()}
+          <Button 
+            variant="secondary"
+            onClick={handleGoBack}
           >
             <span>←</span>
             Назад
-          </button>
+          </Button>
         </div>
       </div>
 
