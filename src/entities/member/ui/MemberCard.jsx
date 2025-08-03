@@ -48,7 +48,7 @@ const MemberCard = ({ member, toggleFavorite, isUserSelected }) => {
             </div>
 
             <div className={styles.button}>
-                <Button onClick={() => navigate(`member/${member.id}`)}>
+                <Button onClick={() => navigate(`/member/${member.id}`)}>
                     Подробнее
                 </Button>
                 <FavouriteBtn
