@@ -26,8 +26,6 @@ export const ThemeSwitcher = () => {
     localStorage.setItem('color-theme', theme);
   };
 
-  console.log('colorTheme', colorTheme);
-
   return (
     <label className={styles.themeSwitcher}>
       <input
