@@ -107,7 +107,14 @@
       margin-top: 30px;
       .profileCardContactsList {
         display: flex;
+        gap: 15px;
       }
+    }
+
+    .funFact {
+      width: 100%;
+      text-align: right;
+      font-style: italic;
     }
   }
 }
