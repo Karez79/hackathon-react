@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: space-between;
     height: toRem(64);
-  
+    
     @include MQmin($tablet) {
       padding: 0 toRem(50);
     }
@@ -29,15 +29,77 @@
     color: var(--dark);
     text-decoration: none;
     transition: color var(--duration) var(--ease);
-  
+    
     @include hover {
       color: #667eea;
     }
   }
   
-  .nav {
+  .navDesktop {
     display: flex;
     gap: toRem(32);
+    align-items: center;
+    margin-left: auto;
+    
+    @include MQmax($tablet) {
+      display: none;
+    }
+  }
+  
+  .navMobile {
+    display: none;
+    
+    @include MQmax($tablet) {
+      display: flex;
+      position: fixed;
+      top: toRem(64);
+      left: 0;
+      right: 0;
+      background: var(--light);
+      flex-direction: column;
+      padding: toRem(20) toRem(30);
+      border-bottom: 1px solid var(--grey);
+      box-shadow: 0 toRem(4) toRem(12) rgba(0, 0, 0, 0.15);
+      transform: translateX(-100%);
+      opacity: 0;
+      visibility: hidden;
+      gap: toRem(20);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 1001;
+      align-items: center;
+    }
+    
+    &.navOpen {
+      @include MQmax($tablet) {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  
+  .blurOverlay {
+    display: none;
+    
+    @include MQmax($tablet) {
+      display: block;
+      position: fixed;
+      top: toRem(64);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(toRem(4));
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
   }
   
   .navLink {
@@ -48,11 +110,11 @@
     font-weight: 500;
     font-size: toRem(16);
     position: relative;
-  
+    
     @include hover {
       color: #667eea;
     }
-  
+    
     &.active {
       color: #667eea;
       
@@ -64,6 +126,15 @@
         right: 0;
         height: toRem(2);
         background: #667eea;
+        
+        @include MQmax($tablet) {
+          bottom: toRem(-2);
+        }
       }
+    }
+    
+    @include MQmax($tablet) {
+      padding: toRem(12) 0;
+      font-size: toRem(18);
     }
   }
