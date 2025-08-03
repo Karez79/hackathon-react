@@ -2,8 +2,10 @@ import { members } from './member';
 
 // Получить участника по ID
 export const getMemberById = (id) => {
+  const member = members.find((member) => member.id === id);
+
   return (
-    members[id] || {
+    member || {
       name: 'Участник не найден',
       role: 'Неизвестная роль',
       initials: '?',
@@ -14,10 +16,10 @@ export const getMemberById = (id) => {
 
 // Получить всех участников как массив
 export const getAllMembers = () => {
-  return Object.values(members);
+  return members;
 };
 
 // Получить количество участников
 export const getMembersCount = () => {
-  return Object.keys(members).length;
+  return members.length;
 };
