@@ -1,7 +1,7 @@
 // MembersGrid.module.scss
 .teamSection {
   padding: 60px 0;
-  background: #f8fafc;
+  background: var(--light-200);
 }
 
 .container {
@@ -18,7 +18,7 @@
   position: relative;
 
   &::after {
-    content: "";
+    content: '';
     display: block;
     width: 80px;
     height: 4px;
