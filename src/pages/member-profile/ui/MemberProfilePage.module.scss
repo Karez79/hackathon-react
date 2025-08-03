@@ -1,107 +1,113 @@
 .memberProfilePage {
-    min-height: 100vh;
+  min-height: 100vh;
+  background: var(--light);
+  color: var(--dark);
+  padding: toRem(96) toRem(30) toRem(64);
+
+  @include MQmin($tablet) {
+    padding: toRem(96) toRem(50) toRem(64);
+  }
+
+  .container {
+    max-width: toRem(1440);
+    margin: 0 auto;
+  }
+
+  .profileCard {
     background: var(--light);
-    color: var(--dark);
-    padding: toRem(96) toRem(30) toRem(64);
-  
+    border-radius: toRem(16);
+    padding: toRem(20);
+    border: 1px solid var(--grey);
+    box-shadow: 0 toRem(4) toRem(24) rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    margin: 0 auto;
+
     @include MQmin($tablet) {
-      padding: toRem(96) toRem(50) toRem(64);
+      padding: toRem(40);
     }
-  
-    .container {
-      max-width: toRem(1440);
-      margin: 0 auto;
-      
-      .profileCard {
-        background: var(--light);
-        border-radius: toRem(16);
-        padding: toRem(48);
-        border: 1px solid var(--grey);
-        box-shadow: 0 toRem(4) toRem(24) rgba(0, 0, 0, 0.1);
-        text-align: center;
-        max-width: toRem(600);
-        margin: 0 auto;
-  
+
+    h3 {
+      font-size: toRem(24);
+      margin: 0 0 toRem(20);
+    }
+
+    .profileCardHeader {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+      margin-bottom: 40px;
+      align-items: flex-start;
+
+      .avatar {
+        width: toRem(120);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: #667eea;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: toRem(48);
+        font-weight: 700;
+        color: var(--light);
+      }
+
+      h1 {
+        text-align: left;
+        font-size: toRem(24);
+        margin: 0 0 10px;
+        color: var(--dark);
+
+        &::after {
+          display: none;
+        }
+
         @include MQmin($tablet) {
-          padding: toRem(64);
-        }
-  
-        .avatar {
-          width: toRem(120);
-          height: toRem(120);
-          border-radius: 50%;
-          background: #667eea;
-          margin: 0 auto toRem(32);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: toRem(48);
-          font-weight: 700;
-          color: var(--light);
-        }
-  
-        h1 {
-          font-size: toRem(32);
-          font-weight: 700;
-          margin-bottom: toRem(8);
-          color: var(--dark);
-  
-          @include MQmin($tablet) {
-            font-size: toRem(40);
-          }
-        }
-  
-        .role {
-          font-size: toRem(18);
-          color: var(--grey-100);
-          margin-bottom: toRem(32);
-  
-          @include MQmin($tablet) {
-            font-size: toRem(20);
-          }
-        }
-  
-        .description {
-          font-size: toRem(16);
-          color: var(--grey-100);
-          line-height: 1.6;
-          margin-bottom: toRem(32);
-  
-          @include MQmin($tablet) {
-            font-size: toRem(18);
-          }
-        }
-  
-        .memberId {
-          background: var(--light-100);
-          padding: toRem(12) toRem(24);
-          border-radius: toRem(8);
-          font-weight: 500;
-          display: inline-block;
-          border: 1px solid var(--grey);
-          color: var(--dark);
+          font-size: toRem(36);
         }
       }
-  
-      .backButton {
-        margin-bottom: toRem(32);
-        padding: toRem(12) toRem(24);
-        background: var(--light-100);
-        border: 1px solid var(--grey);
-        border-radius: toRem(8);
-        color: var(--dark);
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: toRem(8);
-        font-weight: 500;
-        transition: all var(--duration) var(--ease);
-  
-        @include hover {
-          background: #667eea;
-          color: var(--light);
-          border-color: #667eea;
+
+      .role {
+        text-align: left;
+        font-size: toRem(16);
+        color: #667eea;
+        margin: 0 0 toRem(15);
+
+        @include MQmin($tablet) {
+          font-size: toRem(18);
         }
+      }
+
+      .description {
+        text-align: left;
+        font-size: toRem(16);
+        font-weight: normal;
+        color: var(--grey-100);
+        line-height: 1.6;
+        margin: 0 0 toRem(20);
+      }
+
+      .memberId {
+        background: var(--light-100);
+        padding: toRem(12) toRem(24);
+        border-radius: toRem(8);
+        font-weight: 500;
+        display: inline-block;
+        border: 1px solid var(--grey);
+        color: var(--dark);
+      }
+    }
+
+    .profileCardSkills {
+      .profileCardSkillsList {
+        width: 100%;
+      }
+    }
+
+    .profileCardContacts {
+      margin-top: 30px;
+      .profileCardContactsList {
+        display: flex;
       }
     }
   }
+}
