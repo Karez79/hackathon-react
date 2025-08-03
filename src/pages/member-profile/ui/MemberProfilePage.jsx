@@ -35,7 +35,7 @@ export const MemberProfilePage = () => {
                     </nav>
 
                     <div className={styles.profileCardHeader}>
-                        <div className={styles.avatar}>{member.initials}</div>
+                    <img className={styles.avatar} src={member.avatar} alt={member.initials} />
                         <div className={styles.profileInfo}>
                             <h1 className={styles.name}>{member.name}</h1>
                             <div className={styles.role}>

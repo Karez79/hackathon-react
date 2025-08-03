@@ -18,7 +18,7 @@ const MemberCard = ({ member, toggleFavorite, isUserSelected }) => {
 
     return (
         <div className={styles.card}>
-            <div className={styles.initials}>{member.initials}</div>
+            <img className={styles.avatar} src={member.avatar} alt={member.initials} />
 
             <div className={styles.content}>
                 <h3 className={styles.name}>{member.name}</h3>
