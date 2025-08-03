@@ -1,8 +1,8 @@
 import {  useState } from "react"
 
 export const useWidgetModal = () => {
-    // дефолтно false - значит сетка
-    const [stateGridOrSwiper, setStateGridOrSwiper] = useState(false);
+    // дефолтно true - значит сетка
+    const [stateGridOrSwiper, setStateGridOrSwiper] = useState(true);
     
     // переключатель между состояниями отображения
     const handleStateGridOrSwiper = () => {
