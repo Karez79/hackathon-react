@@ -1,4 +1,3 @@
-// MemberCard.jsx
 import PropTypes from "prop-types";
 import styles from "./MemberCard.module.scss";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +17,13 @@ const MemberCard = ({ member, toggleFavorite, isUserSelected }) => {
 
     return (
         <div className={styles.card}>
-            <img className={styles.avatar} src={member.avatar} alt={member.initials} />
+            <div className={styles.avatar}>
+                {member.avatar ? (
+                    <img src={member.avatar} alt={`${member.name} avatar`} />
+                ) : (
+                    member.initials
+                )}
+            </div>
 
             <div className={styles.content}>
                 <h3 className={styles.name}>{member.name}</h3>
@@ -67,8 +72,9 @@ MemberCard.propTypes = {
         role: PropTypes.string.isRequired,
         initials: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
+        avatar: PropTypes.string,
     }).isRequired,
-    isFavorite: PropTypes.bool.isRequired,
+    isUserSelected: PropTypes.bool.isRequired,
     toggleFavorite: PropTypes.func.isRequired,
 };
 

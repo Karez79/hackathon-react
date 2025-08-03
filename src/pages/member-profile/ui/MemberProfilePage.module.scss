@@ -1,126 +1,174 @@
 .memberProfilePage {
-  min-height: 100vh;
-  background: var(--light);
-  color: var(--dark);
-  padding: toRem(96) toRem(30) toRem(64);
-
-  @include MQmin($tablet) {
-    padding: toRem(96) toRem(50) toRem(64);
-  }
-
-  .container {
-    max-width: toRem(1440);
-    margin: 0 auto;
-  }
-
-  .profileCard {
+    min-height: 100vh;
     background: var(--light);
-    border-radius: toRem(16);
-    padding: toRem(20);
-    border: 1px solid var(--grey);
-    box-shadow: 0 toRem(4) toRem(24) rgba(0, 0, 0, 0.1);
-    max-width: 100%;
-    margin: 0 auto;
-
+    color: var(--dark);
+    padding: toRem(96) toRem(30) toRem(64);
+  
     @include MQmin($tablet) {
-      padding: toRem(40);
+      padding: toRem(96) toRem(50) toRem(64);
     }
-
-    h3 {
-      font-size: toRem(24);
-      margin: 0 0 toRem(20);
+  
+    .container {
+      max-width: toRem(1440);
+      margin: 0 auto;
     }
-
-    .profileCardHeader {
-      display: flex;
-      gap: 30px;
-      margin-top: 30px;
-      margin-bottom: 40px;
-      align-items: flex-start;
-
-      .avatar {
-        width: toRem(120);
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background: #667eea;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: toRem(48);
-        font-weight: 700;
-        color: var(--light);
+  
+    .profileCard {
+      background: var(--light);
+      border-radius: toRem(16);
+      padding: toRem(20);
+      border: 1px solid var(--grey);
+      box-shadow: 0 toRem(4) toRem(24) rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+      margin: 0 auto;
+  
+      @include MQmin($tablet) {
+        padding: toRem(40);
       }
-
-      h1 {
-        text-align: left;
+  
+      h3 {
         font-size: toRem(24);
-        margin: 0 0 10px;
-        color: var(--dark);
-
-        &::after {
-          display: none;
-        }
-
-        @include MQmin($tablet) {
-          font-size: toRem(36);
-        }
-      }
-
-      .role {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        text-align: left;
-        font-size: toRem(16);
-        color: #667eea;
-        margin: 0 0 toRem(15);
-
-        @include MQmin($tablet) {
-          font-size: toRem(18);
-        }
-      }
-
-      .description {
-        text-align: left;
-        font-size: toRem(16);
-        font-weight: normal;
-        color: var(--grey-100);
-        line-height: 1.6;
         margin: 0 0 toRem(20);
       }
-
-      .memberId {
-        background: var(--light-100);
-        padding: toRem(12) toRem(24);
-        border-radius: toRem(8);
-        font-weight: 500;
-        display: inline-block;
-        border: 1px solid var(--grey);
-        color: var(--dark);
-      }
-    }
-
-    .profileCardSkills {
-      .profileCardSkillsList {
+  
+      .profileCardHeader {
         display: flex;
         flex-direction: column;
+        gap: toRem(20);
+        margin-top: toRem(30);
+        margin-bottom: toRem(40);
+        align-items: center;
+  
+        @include MQmin($tablet) {
+          flex-direction: row;
+          gap: toRem(30);
+          align-items: flex-start;
+        }
+  
+        .avatar {
+          width: toRem(100);
+          height: toRem(100);
+          border-radius: 50%;
+          background: #667eea;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: toRem(36);
+          font-weight: 700;
+          color: var(--light);
+          flex-shrink: 0;
+          object-fit: cover;
+  
+          @include MQmin($tablet) {
+            width: toRem(120);
+            height: toRem(120);
+            font-size: toRem(48);
+          }
+        }
+  
+        .profileInfo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          width: 100%;
+  
+          @include MQmin($tablet) {
+            align-items: flex-start;
+            text-align: left;
+          }
+        }
+  
+        h1 {
+          font-size: toRem(20);
+          margin: 0 0 toRem(10);
+          color: var(--dark);
+  
+          &::after {
+            display: none;
+          }
+  
+          @include MQmin($tablet) {
+            font-size: toRem(36);
+          }
+        }
+  
+        .role {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: toRem(8);
+          font-size: toRem(14);
+          color: #667eea;
+          margin: 0 0 toRem(15);
+  
+          @include MQmin($tablet) {
+            justify-content: flex-start;
+            font-size: toRem(18);
+            gap: 1rem;
+          }
+        }
+  
+        .description {
+          font-size: toRem(14);
+          font-weight: normal;
+          color: var(--grey-100);
+          line-height: 1.6;
+          margin: 0 0 toRem(20);
+          text-align: center;
+  
+          @include MQmin($tablet) {
+            font-size: toRem(16);
+            text-align: left;
+          }
+        }
+  
+        .memberId {
+          background: var(--light-100);
+          padding: toRem(12) toRem(24);
+          border-radius: toRem(8);
+          font-weight: 500;
+          display: inline-block;
+          border: 1px solid var(--grey);
+          color: var(--dark);
+        }
+      }
+  
+      .profileCardSkills {
+        .profileCardSkillsList {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          gap: toRem(15);
+        }
+      }
+  
+      .profileCardContacts {
+        margin-top: toRem(30);
+        
+        .profileCardContactsList {
+          display: flex;
+          flex-wrap: wrap;
+          gap: toRem(10);
+  
+          @include MQmin($tablet) {
+            gap: toRem(15);
+          }
+        }
+      }
+  
+      .funFact {
         width: 100%;
-        gap: 15px;
+        text-align: center;
+        font-style: italic;
+        margin-top: toRem(20);
+        font-size: toRem(14);
+  
+        @include MQmin($tablet) {
+          text-align: right;
+          font-size: toRem(16);
+        }
       }
-    }
-
-    .profileCardContacts {
-      margin-top: 30px;
-      .profileCardContactsList {
-        display: flex;
-        gap: 15px;
-      }
-    }
-
-    .funFact {
-      width: 100%;
-      text-align: right;
-      font-style: italic;
     }
   }
-}
