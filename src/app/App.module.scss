@@ -17,7 +17,7 @@ body {
 
   // В конце вложенные селекторы
   h1 {
-    color: var(--blue);
+    // color: var(--blue);
     margin-bottom: toRem(24);
     font-weight: 700;
     font-size: clamp(toRem(28), 5vw, toRem(48));
@@ -37,7 +37,7 @@ body {
     }
 
     @include hover {
-      color: var(--orange);
+      color:  #667eea;
     }
   }
 
