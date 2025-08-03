@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Button } from "../../../shared/ui/Button/Button";
 import { Badge } from "../../../shared/ui/Badge/Badge";
 import { technologies } from "../../team";
+import FavouriteBtn from "../../../shared/ui/FavouriteBtn/FavouriteBtn";
 
 const MemberCard = ({ member }) => {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ const MemberCard = ({ member }) => {
         <Button onClick={() => navigate(`member/${member.id}`)}>
           Подробнее
         </Button>
+        <FavouriteBtn />
       </div>
     </div>
   );
