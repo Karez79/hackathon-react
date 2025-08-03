@@ -7,5 +7,13 @@
   color: white;
   background-color: var(--badge-bg);
   user-select: none;
+  cursor: default;
   white-space: nowrap;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: lighten(var(--badge-bg), 10%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
 }
