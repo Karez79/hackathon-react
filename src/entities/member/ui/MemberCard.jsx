@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import styles from "./MemberCard.module.scss";
+import PropTypes from 'prop-types';
+import styles from './MemberCard.module.scss';
 
 const MemberCard = ({ member }) => {
   return (
