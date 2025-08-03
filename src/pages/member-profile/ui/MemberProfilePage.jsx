@@ -2,6 +2,7 @@ import {useParams, Link, useNavigate} from 'react-router-dom';
 import {getMemberById} from '../../../entities/member';
 import styles from './MemberProfilePage.module.scss';
 import {Badge, Button, Progress} from '../../../shared/ui';
+import FavouriteBtn from '../../../shared/ui/FavouriteBtn/FavouriteBtn';
 
 /** Mock data */
 const skills = [
@@ -11,14 +12,9 @@ const skills = [
   {name: 'SCSS', level: 75},
   {name: 'Node.js', level: 70},
 ];
-const contacts = {
-  Telegram: 'https://t.me/username',
-  Email: '',
-  GitHub: '',
-};
 /***/
 
-const MemberProfilePage = () => {
+export const MemberProfilePage = () => {
   const navigate = useNavigate();
 
   const {id} = useParams();
@@ -29,7 +25,7 @@ const MemberProfilePage = () => {
     <div className={styles.memberProfilePage}>
       <div className={styles.container}>
         <div className={styles.profileCard}>
-          {/** Breadcrumbs */}
+          {/** Breadcrumbs - todo */}
           <nav className={styles.breadcrumbs} title='В разработке'>
             <Link to='/' className={styles.breadcrumb}>
               Главная
@@ -56,9 +52,7 @@ const MemberProfilePage = () => {
               </p>
               <p className={styles.description}>{member.description}</p>
 
-              {/** Add to favorites */}
-              <button title='В избранное'>♡</button>
-              {/***/}
+              <FavouriteBtn />
 
               <Button onClick={() => navigate('/')}>← Назад к команде</Button>
             </div>
@@ -79,7 +73,7 @@ const MemberProfilePage = () => {
               {Object.keys(contacts).map((contact) => (
                 <div key={contact} className={styles.contactItem}>
                   <Button
-                    navigate={contacts[contact]}
+                    onClick={() => window.open(contacts[contact], '_blank')}
                     style={{textTransform: 'capitalize'}}
                   >
                     {contact}
@@ -95,5 +89,3 @@ const MemberProfilePage = () => {
     </div>
   );
 };
-
-export default MemberProfilePage;
