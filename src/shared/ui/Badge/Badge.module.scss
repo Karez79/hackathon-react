@@ -12,8 +12,8 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    background-color: brightness(var(--badge-bg), 100%);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 2px white;
+    filter: brightness(0.95) saturate(1.2);
   }
 }
