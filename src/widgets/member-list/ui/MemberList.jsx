@@ -5,10 +5,13 @@ import { Navigation, Pagination } from "swiper/modules";
 
 import styles from "./MemberList.module.scss";
 import { useWidgetModal } from "../model";
+import { useStorageFavorite } from "../../../shared/hooks";
 
 const MembersGrid = () => {
     const { stateGridOrSwiper, handleStateGridOrSwiper } = useWidgetModal();
+    const { toggleFavorite, isUserSelected } = useStorageFavorite();
 
+  
     return (
         <section className={styles.teamSection}>
             <label className={styles.teamSectionAction}>
@@ -23,7 +26,12 @@ const MembersGrid = () => {
                 {stateGridOrSwiper ? (
                     <div className={styles.grid}>
                         {members.map((member) => (
-                            <MemberCard key={member.id} member={member} />
+                            <MemberCard
+                                key={member.id}
+                                member={member}
+                                toggleFavorite={() => toggleFavorite(member.id)}
+                                isUserSelected={isUserSelected(member.id)}
+                            />
                         ))}
                     </div>
                 ) : (
@@ -52,7 +60,13 @@ const MembersGrid = () => {
                                 key={member.id}
                                 className={styles["swiper-slide"]}
                             >
-                                <MemberCard member={member} />
+                                <MemberCard
+                                    member={member}
+                                    toggleFavorite={() =>
+                                        toggleFavorite(member.id)
+                                    }
+                                    isUserSelected={isUserSelected(member.id)}
+                                />
                             </SwiperSlide>
                         ))}
                     </Swiper>
