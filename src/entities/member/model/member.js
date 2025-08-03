@@ -83,6 +83,7 @@ export const members = [
       github: 'https://github.com/damaxGmail',
       telegram: 'https://t.me/Damir_i4',
     },
+
     stack: ['React', 'JavaScript', 'SCSS', 'Vite', 'Feature-Sliced Design'],
     funFact: 'Профессиональный ловец багов - ошибки боятся его как огня 🐛',
     mood: '🛡️',
